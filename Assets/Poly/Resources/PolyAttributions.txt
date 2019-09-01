@@ -1,0 +1,25 @@
+This project uses the following items from Poly (http://poly.google.com):
+
+Title: BUSSSHH
+Author: TMRW
+URL: https://poly.google.com/view/eOF0FQwLuik
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Coconut Halves
+Author: Jasmine Roberts
+URL: https://poly.google.com/view/6Dffgou2bLt
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: OBJ ch pre perfume 18 P
+Author: Robert Mark
+URL: https://poly.google.com/view/8y1bLKmSUxw
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
+
+Title: Soda Bottle
+Author: Jasmine Roberts
+URL: https://poly.google.com/view/dCEwCb0wSwS
+License: Creative Commons CC-BY
+https://creativecommons.org/licenses/by/3.0/legalcode
