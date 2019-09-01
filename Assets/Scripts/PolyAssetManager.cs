@@ -14,7 +14,8 @@ public class PolyAssetManager : MonoBehaviour
 
         foreach(string keyword in keywords)
         {
-            LoadAsset(keyword);
+            Debug.Log("<DEBUG> KEYWORD = " + keyword);
+            LoadAsset(keyword);           
         }
     }
 
@@ -113,5 +114,14 @@ public class PolyAssetManager : MonoBehaviour
         float z = radius * Mathf.Sin((2 * Mathf.PI * currIndex) / totalCount + angleOffset);
 
         return new Vector3(x, 0, z);
+    }
+
+    public void DestroyPolys()
+    {
+        foreach(GameObject gameObject in currentGameObjects)
+        {
+            Debug.Log("<DEBUG> Destroying " + gameObject.name);
+            Destroy(gameObject);
+        }
     }
 }

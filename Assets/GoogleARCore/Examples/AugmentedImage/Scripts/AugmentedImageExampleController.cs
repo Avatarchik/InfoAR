@@ -50,7 +50,6 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// The overlay containing the fit to scan user guide.
         /// </summary>
         public GameObject FitToScanOverlay;
-        public TextMeshProUGUI textMesh;
 
         private Dictionary<int, ProductDetailVisualizer> m_Visualizers
             = new Dictionary<int, ProductDetailVisualizer>();
@@ -72,6 +71,7 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// </summary>
         public void Update()
         {
+            //Debug.Log("<DEBUG> Object count = " + FindObjectsOfType<GameObject>().Length);
             // Exit the app when the 'back' button is pressed.
             if (Input.GetKey(KeyCode.Escape))
             {
@@ -105,15 +105,14 @@ namespace GoogleARCore.Examples.AugmentedImage
                     visualizer = (ProductDetailVisualizer)Instantiate(
                         AugmentedImageVisualizerPrefab, anchor.transform);
                     visualizer.Image = image;
-                    textMesh.text = "Tracking Object";
+                    Debug.Log("<DEBUG> image Database Index = " + image.DatabaseIndex);
                     m_Visualizers.Add(image.DatabaseIndex, visualizer);
-                    visualizer.updateStatus(textMesh);
                 }
                 else if (image.TrackingState == TrackingState.Stopped && visualizer != null)
                 {
                     m_Visualizers.Remove(image.DatabaseIndex);
+                    visualizer.RemovePolyAssetManager();
                     GameObject.Destroy(visualizer.gameObject);
-                    textMesh.text = "Not Tracking Object";
                 }
             }
 
