@@ -57,11 +57,12 @@ public class ProductDetailVisualizer : MonoBehaviour
                 products.Add(new ProductDetails("Lays", "Potato, salt, spices"));
             }
         }
-
-        Debug.Log("<DEBUG> STATUS = " + status);
+ 
         if (status)
         {
+            Debug.Log("<DEBUG> STATUS = " + status);
             SetPolyAssetManager();
+            Debug.Log("<DEBUG> STATUS = " + status);
         }
 
         PolyAssetManager.transform.position = Image.CenterPose.position;

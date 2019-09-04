@@ -285,6 +285,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c10877f7cd5764de18d46d7b777d1faa, type: 3}
+--- !u!114 &732595307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114451889682527732, guid: c10877f7cd5764de18d46d7b777d1faa,
+    type: 3}
+  m_PrefabInstance: {fileID: 732595306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ca0c6a3af6b4635b7e98c6ea0a0cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1288912309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,8 +1072,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2000013467}
   - component: {fileID: 2000013466}
+  - component: {fileID: 2000013468}
   m_Layer: 0
-  m_Name: ExampleController
+  m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1082,7 +1095,6 @@ MonoBehaviour:
   AugmentedImageVisualizerPrefab: {fileID: 8272238817825651426, guid: eab853ba32ebe4b46a9f83dca530a15b,
     type: 3}
   FitToScanOverlay: {fileID: 1622737808}
-  textMesh: {fileID: 1802292747}
 --- !u!4 &2000013467
 Transform:
   m_ObjectHideFlags: 0
@@ -1097,6 +1109,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000013468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000013465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ceccd6c50ba3144880957a0b9f0093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  images:
+  - {fileID: 2800000, guid: 8895c73f45a5d2a47aa5deeb9ef6bd21, type: 3}
+  - {fileID: 2800000, guid: 0c3ae3736511a334b8fc00eaa55da5ff, type: 3}
+  - {fileID: 2800000, guid: 7086f3cca96744118a7a82f93646e70b, type: 3}
+  - {fileID: 2800000, guid: 794ab710665f5492aab79cd5106ce18c, type: 3}
+  - {fileID: 2800000, guid: dcb12afed0f0a4ed6a26a0b49e5b66cf, type: 3}
+  newDatabase: {fileID: 0}
+  session: {fileID: 732595307}
 --- !u!1 &2000174998
 GameObject:
   m_ObjectHideFlags: 0
