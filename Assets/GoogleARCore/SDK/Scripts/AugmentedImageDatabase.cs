@@ -171,6 +171,7 @@ namespace GoogleARCore
             var nativeSession = LifecycleManager.Instance.NativeSession;
             if (nativeSession == null)
             {
+                Debug.Log("<DEBUG> NATIVE SESSION NULL");
                 return -1;
             }
 

@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class CreateRuntimeImageAugmentedDatabase : MonoBehaviour
 {
-    public Texture2D[] images;
     public AugmentedImageDatabase newDatabase;
-    //private List<AugmentedImage> m_TempAugmentedImages = new List<AugmentedImage>();
     public ARCoreSession session;
     int currCount = -1;
     int delay = 0;
@@ -17,30 +15,6 @@ public class CreateRuntimeImageAugmentedDatabase : MonoBehaviour
         newDatabase = ScriptableObject.CreateInstance<AugmentedImageDatabase>();
         Debug.Log("<DEBUG> SCRIPT STARTED");
     }
-
-    /*private void Update()
-    {
-        Session.GetTrackables<AugmentedImage>(
-                m_TempAugmentedImages, TrackableQueryFilter.Updated);
-
-        if (currCount != m_TempAugmentedImages.Count)
-        {
-            Debug.Log("<DEBUG> Currently Tracked items = " + currCount);
-            currCount = m_TempAugmentedImages.Count;
-        }
-
-        foreach (var image in m_TempAugmentedImages)
-        {
-            GameObject temp = null;
-            if (image.TrackingState == TrackingState.Tracking && temp == null)
-            {
-                // Create an anchor to ensure that ARCore keeps tracking this augmented image.
-                Anchor anchor = image.CreateAnchor(image.CenterPose);
-                temp = Instantiate(sphere, anchor.transform);
-                Debug.Log("<DEBUG> image Database Index = " + image.DatabaseIndex);
-            }
-        }
-    }*/
 
     private void Update()
     {
@@ -59,9 +33,9 @@ public class CreateRuntimeImageAugmentedDatabase : MonoBehaviour
 
     public void Create()
     {
-        Debug.Log("<DEBUG> BUTTON PRESSED");
-        foreach (var image in images)
+        foreach (var image in DownloadManager.images)
         {
+            Debug.Log("<DEBUG> CREATE " + image.name + " " + image.isReadable + " " + image.format);
             int x = newDatabase.AddImage(image.name, image);
             Debug.Log("<DEBUG> Val returned on adding Image = " + x);
         }
