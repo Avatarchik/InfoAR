@@ -7,7 +7,7 @@ public class ProductDetailVisualizer : MonoBehaviour
     public AugmentedImage Image;
     PolyAssetManager PolyAssetManager;
     public bool status = true;
-    List<ProductDetails> products;
+    ProductDetails product;
 
     class ProductDetails
     {
@@ -25,20 +25,7 @@ public class ProductDetailVisualizer : MonoBehaviour
     private void Start()
     {
         PolyAssetManager = gameObject.AddComponent<PolyAssetManager>();
-        products = new List<ProductDetails>();
-        products.Add(new ProductDetails("Medimix", "perfume, oil, soda, coconut, herb"));
-        products.Add(new ProductDetails("Monaco", "wheat, salt, water"));
-        products.Add(new ProductDetails("Lays", "Potato, salt, spices"));
         status = true;
-
-        foreach(ProductDetails product in products)
-        {
-            Debug.Log("<DEBUG> Product :" + product.name);
-            foreach(string item in product.items)
-            {
-                Debug.Log("\t\t\t<DEBUG> " + item);
-            }
-        }
     }
 
     public void Update()
@@ -46,16 +33,6 @@ public class ProductDetailVisualizer : MonoBehaviour
         if (Image == null || Image.TrackingState != TrackingState.Tracking)
         {
             return;
-        }
-
-        if(products != null)
-        {
-            if(products.Count == 0)
-            {
-                products.Add(new ProductDetails("Medimix", "perfume, oil, soda, coconut, herb"));
-                products.Add(new ProductDetails("Monaco", "wheat, salt, water"));
-                products.Add(new ProductDetails("Lays", "Potato, salt, spices"));
-            }
         }
  
         if (status)
@@ -71,18 +48,18 @@ public class ProductDetailVisualizer : MonoBehaviour
     public void SetPolyAssetManager()
     {
         Debug.Log("<DEBUG> Image Database Index = " + Image.DatabaseIndex);
-        if (products == null)
+        product = new ProductDetails(
+            DownloadManager.data.productMetadatas[Image.DatabaseIndex].name, 
+            DownloadManager.data.productMetadatas[Image.DatabaseIndex].item
+            );
+        if (product == null)
         {
             Debug.Log("<DEBUG> product is null");
         }
-        else if(products.Count == 0)
-        {
-            Debug.Log("<DEBUG> product count is 0");
-        }
         else
         {
-            Debug.Log("<DEBUG> Product = " + products[Image.DatabaseIndex].name);
-            PolyAssetManager.LoadAssetList(products[Image.DatabaseIndex].items);
+            Debug.Log("<DEBUG> Product = " + product.name);
+            PolyAssetManager.LoadAssetList(product.items);
             status = false;
         }
     }

@@ -7,10 +7,12 @@ public class PolyAssetManager : MonoBehaviour
     List<GameObject> currentGameObjects = new List<GameObject>();
     public int currItemTotalCount = 0;
     public int currCount = 0;
+    GameObject loadingSphere;
 
     public void LoadAssetList(List<string> keywords)
     {
         currItemTotalCount = keywords.Count;
+        loadingSphere = this.transform.GetChild(0).gameObject;
 
         foreach(string keyword in keywords)
         {
@@ -52,6 +54,7 @@ public class PolyAssetManager : MonoBehaviour
         {
             // Handle error.
             Debug.LogError("Failed to get assets. Reason: " + result.Status);
+            currCount++;
             return;
         }
         // Success. result.Value is a PolyListAssetsResult and
@@ -59,6 +62,7 @@ public class PolyAssetManager : MonoBehaviour
         if (result.Value.assets.Count == 0)
         {
             Debug.Log("No asset found");
+            currCount++;
             return;
         }
 
@@ -82,6 +86,7 @@ public class PolyAssetManager : MonoBehaviour
         if (!result.Ok)
         {
             Debug.LogError("Failed to import asset. :( Reason: " + result.Status);
+            currCount++;
             return;
         }
         Debug.Log("Successfully imported asset: " + asset.name);
@@ -101,6 +106,7 @@ public class PolyAssetManager : MonoBehaviour
                 currentGameObjects[i].transform.localPosition = GetPositionInCircle(i, currentGameObjects.Count, 0.1f);
                 currentGameObjects[i].SetActive(true);
             }
+            loadingSphere.SetActive(false);
         }
         else
         {

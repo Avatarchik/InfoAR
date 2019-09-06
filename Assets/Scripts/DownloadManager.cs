@@ -64,9 +64,11 @@ public class DownloadManager : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+            Debug.Log("<DEBUG> Sending GET ALL DATA Request");
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
 
+            Debug.Log("<DEBUG> GET ALL DATA Completed");
 
             if (webRequest.isNetworkError)
             {
@@ -88,8 +90,9 @@ public class DownloadManager : MonoBehaviour
     {
         using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(uri))
         {
+            Debug.Log("<DEBUG> Sending GET IMAGE Request: " + uri);
             yield return uwr.SendWebRequest();
-
+            Debug.Log("<DEBUG> GET IMAGE Completed: " + uri);
             if (uwr.isNetworkError || uwr.isHttpError)
             {
                 Debug.Log(uwr.error);
